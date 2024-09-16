@@ -13,7 +13,12 @@ env:
 
 jobs:
   build:
-    name: Build
+    strategy:
+      matrix:
+        xcode: [15.4, 6.0]
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_${{ matrix.xcode }}.app/Contents/Developer
+    name: Build Xcode ${{ matrix.xcode }}
     runs-on: macos-14
     if: ${{ !github.event.pull_request.draft }}
     env:
