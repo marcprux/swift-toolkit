@@ -73,7 +73,7 @@ public actor FormatSnifferBlob {
     func readAsXML() async -> ReadResult<XMLDocument?> {
         if xml == nil {
             xml = await read().map {
-                await $0.flatMap {
+                await $0.aflatMap {
                     try? await xmlDocumentFactory.open(data: $0, namespaces: [])
                 }
             }

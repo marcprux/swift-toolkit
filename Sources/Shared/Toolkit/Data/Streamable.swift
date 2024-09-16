@@ -52,7 +52,7 @@ public extension Streamable {
         let result = await stream(range: range) {
             data += $0
         }
-        return result.map { data }
+        return await result.map { data }
     }
 
     /// Reads the whole content as a `String`.

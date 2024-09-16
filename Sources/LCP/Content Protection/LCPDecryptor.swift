@@ -211,7 +211,7 @@ final class LCPDecryptor {
 
 private extension LCPLicense {
     func decryptFully(data: ReadResult<Data>, isDeflated: Bool) async -> ReadResult<Data> {
-        data.flatMap {
+        await data.flatMap {
             do {
                 // Decrypts the resource.
                 guard var data = try self.decipher($0) else {
