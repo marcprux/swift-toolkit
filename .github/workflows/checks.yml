@@ -15,7 +15,7 @@ jobs:
   build:
     strategy:
       matrix:
-        xcode: [15.4, 6.0]
+        xcode: ['15.4', '6.0']
     name: Build Xcode ${{ matrix.xcode }}
     runs-on: macos-14
     if: ${{ !github.event.pull_request.draft }}
